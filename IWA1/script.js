@@ -14,6 +14,14 @@ const subtract= document.querySelector('[data-key="subtract"]')
 const subtractHandler = () => {
     const newValue= parseInt( number.value) -1
     number.value= newValue;
+
+    if( add.disable=== true){
+        add.disable=false
+    }
+
+    if(newValue <= MIN_NUMBER){
+        subtract.disable=true
+    }
 } 
 
 const addHandler= () => {
