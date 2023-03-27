@@ -1,32 +1,38 @@
-const MAX_NUMBER= 10
-const MIN_NUMBER= -10
+const MAX_NUMBER = 10
+const MIN_NUMBER = -10
+const STEP_AMOUNT = 5
 
-
-
-const number= document.querySelector('[data-key="number"]')
+const number = document.querySelector('[data-key="number"]')
 const add = document.querySelector('[data-key="add"]')
-const subtract= document.querySelector('[data-key="subtract"]')
-
+const subtract = document.querySelector('[data-key="subtract"]')
 
 // inside subtractHandler located a new memory called newValue
 // addHandler newValue
 
 const subtractHandler = () => {
-    const newValue= parseInt( number.value) -1
-    number.value= newValue;
+    const newValue = parseInt(number.value) - STEP_AMOUNT
+    number.value = newValue;
 
-    if( add.disable=== true){
-        add.disable=false
+    if (add.disabled === true) {
+        add.disabled = false
     }
 
-    if(newValue <= MIN_NUMBER){
-        subtract.disable=true
+    if (newValue <= MIN_NUMBER) {
+        subtract.disabled = true
     }
-} 
+}
 
-const addHandler= () => {
-    const newValue= parseInt( number.value) +1
-    number.value= newValue;
+const addHandler = () => {
+    const newValue = parseInt(number.value) + STEP_AMOUNT
+    number.value = newValue;
+
+    if (subtract.disabled === true) {
+        subtract.disabled = false
+    }
+
+    if (newValue >= MAX_NUMBER) {
+        add.disabled = true
+    }
 }
 
 subtract.addEventListener('click', subtractHandler)
