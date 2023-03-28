@@ -6,3 +6,8 @@
 const date = '10/07/2014'
 
 console.log(date)
+
+//because the was no log on the console
+//add a .log
+//the code worked
+//No
