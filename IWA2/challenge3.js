@@ -5,10 +5,10 @@ It is important to show the following message in order to:
 - to impress investors
 */
 
-const warn="securityScanStrating"
+const warn="securityscanstrating"
 
 /* It is important to let user know when they can close the page  */
 
-const info="pleaseWaitForScanToCompleteBeforeClosingTheBrowser"
+const info="pleaseWaitforscantocompletebeforeclosingthebrowser"
 
 console.log(warn + info)
