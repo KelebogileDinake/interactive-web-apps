@@ -4,13 +4,12 @@ It is important to show the following message in order to:
 - to scare hackers
 - to impress investors
 */ 
-const warn="securityscanstrating"
 
+console.warn( "securityscanstrating");
 /* It is important to let user know when they can close the page  */
 
-const info="pleaseWaitforscantocompletebeforeclosingthebrowser"
+console.info("pleaseWaitforscantocompletebeforeclosingthebrowser");
 
-console.log(warn + info)
 
 /*because the console was introducted on the const
 the was no console.log */ 
