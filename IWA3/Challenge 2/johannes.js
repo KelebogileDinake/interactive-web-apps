@@ -1,6 +1,6 @@
-const firstname = "Johannes"
-const surname = "Potgieter"
-export const roleB = "Intern"
+export const firstname = "Johannes"
+export const surname = "Potgieter"
+export const role = "Intern"
 
-const display= firstname + " (" + roleB + ")"
+const display= firstname + " " + surname;
 document.querySelector('#johannes').innerText = display
