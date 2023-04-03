@@ -1,8 +1,8 @@
 //imported all the 3 files
 
-import './alex.js'
+/*import './alex.js'
 import './johannes.js'
-import './nwabisa.js'
+import './nwabisa.js'*/
 
 //imported the roles and rename the roles as A for alex, B for Johanness and C for Nwabisa
 import { role as roleA } from "./alex.js";
