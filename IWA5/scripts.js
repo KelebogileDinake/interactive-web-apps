@@ -72,6 +72,7 @@ if (shipping === 0 && customers !== '1') {
 if(location !== 'NK') {
 	console.log('price', currency, totalCost + shipping);
 }
+// the location being 'NK' because the North Korea the is no shipping in North Korea and RSA and NAM
 
 
 
