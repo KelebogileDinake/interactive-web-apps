@@ -6,7 +6,7 @@ const NONE_SELECTED = '0'
 
 let shipping= null
 let currency= 'R'
-let location = 'NK'
+let location = 'NK' // here we choose a different contry to get the message from that country
 
 
 // define the items and calculate the cost 
