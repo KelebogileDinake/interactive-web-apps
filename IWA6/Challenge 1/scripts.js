@@ -21,3 +21,6 @@ const secondaryValid = typeof secondaryPhone == 'string' // only changed and use
 
 console.log('Primary phone is valid numerical string:' , primaryValid)
 console.log('Secondary phone is valid numerical string:', secondaryValid)
+
+//Olebogeng solution
+const secondaryValid typeof number parseInt(primaryPhone) === primaryPhone
