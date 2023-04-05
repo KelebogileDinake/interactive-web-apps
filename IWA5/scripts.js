@@ -21,7 +21,7 @@ currency = $
 if (shoes + batteries + pens + shirts > 1000 &&  ) {
 	if (location = NAM && customers < 2) {
 			if (location = RSA)
-		    shipping = 0 || calcShipping
+			shipping = 0 || calcShipping
 		}
 	}
 }
@@ -38,38 +38,48 @@ currency = null*/
 // I have const the x3
 const FREE_WARNING = 'Free shipping only applies to single customer orders'
 const BANNED_WARNIN = 'Unfortunately we do not ship to your country of residence'
-const NONE_SELECTED = '0' // don't see the need of include it
+const NONE_SELECTED = 0 // don't see the need of include it
+const customer = 1
 
-let shipping= null // for the total at the end to make sense
-let currency= 'R'
+let shipping = null // for the total at the end to make sense
+let currency = null
 let location = 'NK' // here we choose a different contry to get the message from that country
 
 
 // define the items and calculate the cost 
-let shoes = 300 *1
+let shoes = 300 * 1
 let toys = 100 * 5
-let shirts= 150 * 2 // deleted the none selected added *2 to get R300
+let shirts = 150 * NONE_SELECTED // deleted the none selected added *2 to get R300
 let batteries = 70
-let pens= 5 * 20 // deleted the none selected added 20
+let pens = 5 * NONE_SELECTED // deleted the none selected added 20
 let totalCost = shoes + toys + shirts + batteries + pens;
 
-if (location === 'RSA') { shipping === 400 && currency === 'R' }
+//Coach's suggestion
+if (location === 'RSA') {
+	currency = 'R'
+	shipping = 400
+} else {
+	currency = '$'
+	shipping = location === 'NAM' ? 600 : 800
+}
 
-if (location === 'NAM') { shipping === 600 && currency === '$'}
-else if(location === 'other') {shipping === 800 && currency ===$}
+//if (location === 'RSA') { shipping === 400 && currency === 'R' }
 
-if(location = 'NK') { console.log(BANNED_WARNIN)}
+//if (location === 'NAM') { shipping === 600 && currency === '$'}
+//else if(location === 'other') {shipping === 800 && currency ===$}
 
-if (shoes + batteries + pens + shirts > 1000 && location !==NK) {
-	if (location=== 'RSA' || (location === 'NAM' && customers < 2) ){ shipping = 0 || calcShipping}
-} else console.log (FREE_WARNING); // when selected NK the message shouldn't protrai but it does
+if (location === 'NK') { console.log(BANNED_WARNIN) }
+
+if (shoes + batteries + pens + shirts > 1000 && location !== NK) {
+	if (location === 'RSA' || (location === 'NAM' && customers < 2)) { shipping = 0 || calcShipping }
+} else console.log (FREE_WARNING) ; // the else if location of NK restrics this code to not be read
 
 
 if (shipping === 0 && customers !== '1') {
 	console.log(FREE_WARNING);
 }// why did we add this one because I don't see the need
 
-if(location !== 'NK') {
+if (location !== 'NK') {
 	console.log('price', currency, totalCost + shipping);
 }
 // the location being 'NK' because the North Korea the is no shipping in North Korea and RSA and NAM

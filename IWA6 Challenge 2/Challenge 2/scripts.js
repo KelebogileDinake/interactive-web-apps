@@ -28,7 +28,7 @@ const minuteOfDay = 00;
 
 //Only change below this line
 
-let expense= rent + food + transport
+let expense= rent + food + transport // to have the total for the expence
 
 if ((hourOfDay== '00') && (minuteOfDay == '00')){
     const taxAsDecimal = parseInt(tax) /100
