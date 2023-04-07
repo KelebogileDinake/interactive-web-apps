@@ -69,11 +69,11 @@ const leo= {
 }
 
 const sarah= {
-	name : `${(sarahName).trim()} ${sarahSurname}`,
-	age : 62,
-	accessId : '6b279ae5-5657-4240-80e9-23f6b635f7a8',
-	balance: parseInt(sarahBalance*-1),
-	address: {
+	Name : `${(sarahName).trim()} ${sarahSurname}`,
+	Balance: parseInt(sarahBalance*-1),
+	AccessId : '6b279ae5-5657-4240-80e9-23f6b635f7a8',
+	Age : 62,
+	Address: {
 		sarahNumber,
 		sarahStreet,
 		sarahPostal,
