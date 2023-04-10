@@ -29,6 +29,7 @@ const rent = {
 }
 
 // You can change below however you want
+//[] THE IDENTIFIERS
 if(size && lodging) {
     const taxAsDecimal = parseInt(`${tax[913]}`)/100 
     const startingAfterTax = salary - (salary*taxAsDecimal)
