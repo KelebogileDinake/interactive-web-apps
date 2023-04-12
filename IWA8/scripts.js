@@ -40,7 +40,7 @@ const sarah {
 console.log(leo, leo[address][postal-code])
 console.log(sarah, sarah[address][postal-code])*/
 
-//My Solution
+/*//My Solution
 const leoName = 'Leo Musvaire'
 const leoNumber = '2'
 const leoStreet = 'Church St.'
@@ -58,7 +58,7 @@ const sarahPostal = '0310'
 
 const leo= {
 	name: leoName,
-	balance: parseInt(leoBalance*-1),
+	balance: parseInt(leoBalance*-1), //used parseInt to remove the balance from string
 	accessId:'47afb389-8014-4d0b-aff3-e40203d2107f',
 	age : 24,
 	address: {   
@@ -69,16 +69,59 @@ const leo= {
 }
 
 const sarah= {
-	Name : `${(sarahName).trim()} ${sarahSurname}`,
-	Balance: parseInt(sarahBalance*-1),
-	AccessId : '6b279ae5-5657-4240-80e9-23f6b635f7a8',
-	Age : 62,
-	Address: {
+	name : `${(sarahName).trim()} ${sarahSurname}`,
+	balance: parseInt(sarahBalance*-1),
+	accessId : '6b279ae5-5657-4240-80e9-23f6b635f7a8',
+	age : 62,
+	address: {
 		sarahNumber,
 		sarahStreet,
 		sarahPostal,
 	}
 }
 
-console.log(`Name:${leo.name}\nBalance:R${leo.balance}\nAge:${leo.age}\nAccessId:${leo.accessId}\n\nAddress: {\n Number:${leo.address.leoNumber}\n Street: ${leo.address.leoStreet}\n Postal:${leo.address.leoPostal}}`)
-console.log(sarah)
+//For leo's layout to look like sarah's layout
+console.log(`Name:${leo.name}\nBalance:R${leo.balance}\nAge:${leo.age}\nAccessId:${leo.accessId}\n\nAddress: {\n Number:${leo.address.leoNumber}\n Street: ${leo.address.leoStreet}\n Postal:${leo.address.leoPostal}}\n\n`)
+console.log(`Name:${sarah.name}\nBalance:R${sarah.balance}\nAge:${sarah.age}\nAccessId:${sarah.accessId}\n\nAddress: {\n Number:${sarah.address.sarahNumber}\n Street: ${sarah.address.sarahStreet}\n POstal:${sarah.address.sarahPostal}}`)
+//console.log(sarah)*/
+
+// RECOMMENDED SOLUTION BY COACH
+const leoName = 'Leo'
+const leoSurname = 'Musvaire     '
+const leoBalance = '-9394'
+const leoNumber = '2'
+const leoStreet = 'Church St.'
+const leoPostal = '3105'
+
+const sarahName = 'Sarah    '
+const sarahSurname = 'Kleinhans'
+const sarahBalance = '-4582.21000111'
+const sarahNumber = '13'
+const sarahStreet = 'William Close'
+const sarahPostal = '0310'
+// Only change below this line
+const leo = {
+	name: leoName,
+	balance: leoBalance,
+	accessToken: '47afb389-8014-4d0b-aff3-e40203d2107f',
+	age: 24,
+	address: {
+		number: leoNumber,
+		street: leoStreet,
+		postalCode: leoPostal,
+	}
+}
+const sarah = {
+	name: sarahName,
+	balance: sarahBalance,
+	accessToken: '47afb389-8014-4d0b-aff3-e40203d2107f',
+	age: 64,
+	address: {
+		number: sarahNumber,
+		street: sarahStreet,
+		postalCode: sarahPostal,
+	}
+}
+//For sarah's layout to look the same as leo's
+console.log(leo, leo.address.postalCode)
+console.log(sarah, sarah.address.postalCode)
