@@ -291,7 +291,7 @@ const firstHolidayTimestamp = Math.min(
     holidays[8].date,)
 //console.log(firstHolidayTimestamp)
 let minDate = new Date(firstHolidayTimestamp)
-console.log(minDate)
+console.log('First Holiday:' ,minDate.toLocaleDateString("en-ZA"))
 
 const lastHolidayTimestamp = Math.max(
     dayOfReconciliation,
@@ -305,7 +305,7 @@ const lastHolidayTimestamp = Math.max(
     holidays[8].date,)
 //console.log(lastHolidayTimestamp)
 let maxDate= new Date(lastHolidayTimestamp)
-console.log(maxDate)
+console.log('lastHoliday:' ,maxDate.toLocaleDateString("en-ZA"))
 
 const firstDay = firstHolidayTimestamp.getDate
 const firstMonth = firstHolidayTimestamp.getMonth
