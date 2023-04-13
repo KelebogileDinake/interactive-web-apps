@@ -26,6 +26,7 @@ const STATUS_MAP = {
 }
 
 // Edit below line 
+const book1 = document.query
 
 
 status = selector(status)
