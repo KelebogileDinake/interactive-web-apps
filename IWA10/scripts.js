@@ -104,7 +104,7 @@ const randomHoliday = holidays[Math.random]
 console.log(randomHoliday.date)*/
 
 
-//my solution
+/*//my solution
 const currentYear = new Date().getFullYear()
 
 const holidays = {
@@ -202,9 +202,9 @@ const randomHolidayDate = randomHoliday.date instanceof Date ?
   `${randomHoliday.date.getFullYear()}` :
   randomHoliday.date
 
-console.log (randomHolidayDate)
+console.log (randomHolidayDate)*/
 
-/*//My Another solution
+//My Another solution
 const currentYear = new Date().getFullYear()
 
 const holidays = {
@@ -312,8 +312,12 @@ const firstMonth = firstHolidayTimestamp.getMonth
 const lastDay = lastHolidayTimestamp.getDate
 const lastMonth = lastHolidayTimestamp.getMonth
 
-console.log('{firstDay}/{firstMonth}/{currentYear}')
-console.log('{lastDay}/{lastMonth}/{currentYear}')
+const randomHolidayIndex = Math.floor(Math.random() * 9)
+const randomHoliday = holidays[randomHolidayIndex]
+const randomHolidayDate = randomHoliday.date instanceof Date ?
+  `${randomHoliday.date.getDate().toString().padStart(2, '0')}/` +
+  `${(randomHoliday.date.getMonth() + 1).toString().padStart(2, '0')}/` +
+  `${randomHoliday.date.getFullYear()}` :
+  randomHoliday.date
 
-const randomHoliday = holidays[Math.random]
-console.log(randomHoliday.date)*/
+console.log (randomHolidayDate)
