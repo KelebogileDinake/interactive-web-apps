@@ -33,38 +33,45 @@ const 3-status: document(status)
 3-status = 3-root.status ? Delivered : Pending*/
 
 //My Solution
-//For Order 1
+//For Order 1 elements
 const order1= document.querySelector('[data-key="order1"]');
 const biscuits1= order1.querySelector('.biscuits.count');
-biscuits1.innerText= order1.dataset.biscuits;
 const donuts1= order1.querySelector('.donuts.count');
-donuts1.innerText= order1.dataset.donuts;
 const pancakes1= order1.querySelector('.pancakes.count');
-pancakes1.innerText= order1.dataset.pancakes;
 const status1= order1.querySelector('.status dd');
-status1.innerText= order1.dataset.delivered==="true" ? "Delivered" : "Pending";
 
-//For Order 2
+
+//For Order 2 elements
 const order2= document.querySelector('[data-key="order2"]');
 const biscuits2= order2.querySelector('.biscuit.count');
-biscuits2.innerText= order2.dataset.biscuits;
 const donuts2= order2.querySelector('.donuts.count');
-donuts2.innerText= order2.dataset.donuts;
 const pancakes2= order2.querySelector('.pancakes.count');
-pancakes2.innerText= order2.dataset.pancakes;
 const status2= order2.querySelector('.status dd');
-status2.innerText= order2.dataset.delivered=== "true" ? "Delivered" : "Pending"
 
-//For Order3
+//For Order3 elements
 const order3= document.querySelector('[data-key="order3"]');
 const biscuits3= order3.querySelector('.biscuit.count');
-biscuits3.innerText=order3.dataset.biscuits3
 const donuts3= order3.querySelector('.donuts.count');
-donuts3.innerText= order3.dataset.donuts;
 const pancakes3= order3.querySelector('.pancakes.count');
-pancakes3.innerText= order3.dataset.pancakes;
 const status3= order3.querySelector('.status dd')
+
+
+//set the count and status values for each order
+biscuits1.innerText= order1.dataset.biscuits;
+donuts1.innerText= order1.dataset.donuts;
+pancakes1.innerText= order1.dataset.pancakes;
+status1.innerText= order1.dataset.delivered==="true" ? "Delivered" : "Pending";
+
+biscuits2.innerText= order2.dataset.biscuits;
+donuts2.innerText= order2.dataset.donuts;
+pancakes2.innerText= order2.dataset.pancakes;
+status2.innerText= order2.dataset.delivered=== "true" ? "Delivered" : "Pending"
+
+biscuits3.innerText=order3.dataset.biscuits3
+donuts3.innerText= order3.dataset.donuts;
+pancakes3.innerText= order3.dataset.pancakes;
 status3.innerText= order3.dataset.delivered=== "true" ? "Delivered" : "Pending"
+
 
 
 /*//From ChatGPT
