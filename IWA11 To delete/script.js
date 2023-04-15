@@ -60,13 +60,15 @@ const status3= order3.querySelector('.status dd')
 biscuits1.innerHTML = order1.dataset.biscuits
 donuts1.innerHTML = order1.dataset.donuts
 pancakes1.innerHTML = order1.dataset.pancakes;
-status1.innerText= order1.dataset.delivered==="true" ? "Delivered" : "Pending";
-
-
-status2.innerText= order2.dataset.delivered=== "true" ? "Delivered" : "Pending"
-
-
-status3.innerText= order3.dataset.delivered=== "true" ? "Delivered" : "Pending"*/
+status1.innerHTML= order1.dataset.delivered==="true" ? "Delivered" : "Pending";
+biscuits2.innerHTML = order2.dataset.biscuits
+donuts2.innerHTML = order2.dataset.donuts
+pancakes2.innerHTML = order2.dataset.pancakes;
+status2.innerHTML= order2.dataset.delivered=== "true" ? "Delivered" : "Pending"
+biscuits3.innerHTML = order3.dataset.biscuits
+donuts3.innerHTML = order3.dataset.donuts
+pancakes3.innerHTML = order3.dataset.pancakes;
+status3.innerHTML= order3.dataset.delivered=== "true" ? "Delivered" : "Pending"*/
 
 
 
@@ -100,7 +102,7 @@ pancakes3.innerText = order3.dataset.pancakes;
 status3.innerText = order3.dataset.delivered === "true" ? "Delivered" : "Pending";*/
 
 
-//From Chat GPT
+/*//From Chat GPT
 // Order 1 elements
 const order1 = document.querySelector('[data-key="order1"]');
 const biscuits1 = order1.querySelector('.biscuits .count');
@@ -136,5 +138,7 @@ status2.textContent = order2.dataset.delivered === "true" ? "Delivered" : "Pendi
 biscuits3.textContent = order3.dataset.biscuits;
 donuts3.textContent = order3.dataset.donuts;
 pancakes3.textContent = order3.dataset.pancakes;
-status3.textContent = order3.dataset.delivered === "true" ? "Delivered" : "Pending";
+status3.textContent = order3.dataset.delivered === "true" ? "Delivered" : "Pending";*/
+
+
 

@@ -260,7 +260,7 @@ const futureId = 9
 
 // Do not change code above this comment
 
-console.log(holidays.futureId || `ID ${futureId} not created yet`)
+console.log(holidays.futureId || `ID ${futureId} not created yet`) //the console.log gives the output of checking where the futureId(9) is included in the holidays,
 
 const copied= holidays[6].date
 const update= { name: 'X-mas Day' ,date:(`25 December ${currentYear}`)}
@@ -277,7 +277,7 @@ console.log(`Date change: ${correctDate.getDate()}/${(correctDate.getMonth()+1)}
 
 //Fixing a day of reconciliation
 let dayOfReconciliation = new Date(holidays[0].date);
-console.log (dayOfReconciliation)
+//console.log (dayOfReconciliation)
 
 const firstHolidayTimestamp = Math.min(
     dayOfReconciliation,
@@ -305,12 +305,12 @@ const lastHolidayTimestamp = Math.max(
     holidays[8].date,)
 //console.log(lastHolidayTimestamp)
 let maxDate= new Date(lastHolidayTimestamp)
-console.log('lastHoliday:' ,maxDate.toLocaleDateString("en-ZA"))
+console.log('lastHoliday:' ,maxDate.toLocaleDateString("en-ZA")) //
 
-const firstDay = firstHolidayTimestamp.getDate
-const firstMonth = firstHolidayTimestamp.getMonth
-const lastDay = lastHolidayTimestamp.getDate
-const lastMonth = lastHolidayTimestamp.getMonth
+//const firstDay = new Date(firstHolidayTimestamp) .getDate()
+//const firstMonth =new Date(firstHolidayTimestamp) .getMonth()
+//const lastDay = new Date(lastHolidayTimestamp).getDate()
+//const lastMonth = new Date(lastHolidayTimestamp).getMonth()
 
 const randomHolidayIndex = Math.floor(Math.random() * 9)
 const randomHoliday = holidays[randomHolidayIndex]
