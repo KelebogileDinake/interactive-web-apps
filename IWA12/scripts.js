@@ -32,36 +32,43 @@ const book1 = {
     reserve: document.querySelector('#book1 .reserve'),
     checkout: document.querySelector('#book1 .checkout'),
     checkin: document.querySelector('#book1 .checkin')
-  }
+  } //overdue objects
   const book2 = {
     status: document.querySelector('#book2 .status'),
     reserve: document.querySelector('#book2 .reserve'),
     checkout: document.querySelector('#book2 .checkout'),
     checkin: document.querySelector('#book2 .checkin')
-  }
+  } // reserved objects
   const book3 = {
     status: document.querySelector('#book3 .status'),
     reserve: document.querySelector('#book3 .reserve'),
     checkout: document.querySelector('#book3 .checkout'),
     checkin: document.querySelector('#book3 .checkin')
-  }
+  } // for shelf objects
 
-  
+  //For Overdue Object
   book1.checkin.style.filter = 'grayscale(100%)';
   book1.status.style.color = STATUS_MAP.overdue.color;
   book1.reserve.disabled = !STATUS_MAP.overdue.canReserve;
   book1.checkout.disabled = !STATUS_MAP.overdue.canCheckout;
-  book1.checkin.disabled = !STATUS_MAP.overdue.canCheckIn;
+  book1.checkin.disabled = !STATUS_MAP.overdue.canCheckIn; //because of the false
+//For reserved object
   book2.checkin.style.filter = 'grayscale(100%)';
   book2.status.style.color = STATUS_MAP.reserved.color;
   book2.reserve.disabled = !STATUS_MAP.reserved.canReserve;
   book2.checkout.disabled = !STATUS_MAP.reserved.canCheckout;
   book2.checkin.disabled = !STATUS_MAP.reserved.canCheckIn;
+//For Shelf Object
   book3.checkin.style.filter = 'grayscale(100%)';
   book3.status.style.color = STATUS_MAP.shelf.color;
   book3.reserve.disabled = !STATUS_MAP.shelf.canReserve;
   book3.checkout.disabled = !STATUS_MAP.shelf.canCheckout;
   book3.checkin.disabled = !STATUS_MAP.shelf.canCheckIn;
+
+  // we disable all 3 buttons so that the boolean at the STATUS_MAP objects can read the
+  //so basically the !status reads the booleans provided at the status map above.
+  //checkin filter grayscale(100%) is to remove the greener texts inside the buttons and disable the button if thats the case
+
 
 
 
