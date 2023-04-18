@@ -47,8 +47,9 @@ function multiply (a, b) {
 
 function internal() {
     const added = this.add(this.internal.a, this.internal.b);
-    const multipied = this.multiply(this.internal.a, this.internal.b);
-    return added * multipied
+	console.log(added * this.internal.c);
+    //const multipied = this.multiply(this.internal.a, this.internal.b);
+    return this
 }; // this function reads the internal objects of both the examples 
    // the (this) attaches/call the function add thats above and in the backets it calls the interals
    // the return will simply multiply both the const added and multipied
@@ -77,5 +78,5 @@ const example2 = {
   calculate: internal
 }
 
-console.log(example1.calculate()) 
-console.log(example2.calculate())
+example1.calculate()
+example2.calculate()
