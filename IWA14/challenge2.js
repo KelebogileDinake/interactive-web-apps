@@ -41,15 +41,14 @@ function add (a, b) {
     return a + b;
 }
 
-function multiply (add, c) {
-    return add * c;
+function multiply (a, b) {
+    return a * b;
 }
 
 function internal() {
     const added = this.add(this.internal.a, this.internal.b);
 	const multipied= this.multiply(added, this.internal.c)
 	console.log(multiplied);
-    return this
 };  
    // this function reads the internal objects of both the examples 
    // the (this) attaches/call the function add thats above and in the backets it calls the interals
