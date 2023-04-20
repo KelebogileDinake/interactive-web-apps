@@ -1,3 +1,5 @@
+/*//LMS Solution
+
 const data = {
 	lists: [
 		['first', [15, 11, 13, 7, 5]],
@@ -25,6 +27,63 @@ const extractBiggest = () => {
 	
 	return third
 }
+
+// Only edit above
+
+result.push(extractBiggest())
+result.push(extractBiggest())
+result.push(extractBiggest())
+result.push(extractBiggest())
+result.push(extractBiggest())
+
+result.push(extractBiggest())
+result.push(extractBiggest())
+result.push(extractBiggest())
+result.push(extractBiggest())
+result.push(extractBiggest())
+
+result.push(extractBiggest())
+result.push(extractBiggest())
+result.push(extractBiggest())
+result.push(extractBiggest())
+result.push(extractBiggest())
+
+console.log(result)*/
+
+//My solution
+//Multi-dimensional Array- nest one array within another array
+const data = {
+	lists: [
+		['first', [15, 11, 13, 7, 5]],
+		['second', [2, 6, 8, 4, 14, 12, 10]],
+		['third', [9, 3, 1]],
+	]
+}
+
+// Only edit below
+// I exttract the list of numbers from the data object abd assign them to 3 variables
+const firstLine = data.lists[0][1]
+const secondLine = data.lists[1][1]
+const thirdLine = data.lists[2][1]
+
+const result = []
+
+const extractBiggest = () => {
+	if (firstLine.length === 0) {
+		return secondLine.length === 0 ? thirdLine.pop() : secondLine.pop();
+	}
+
+	if (secondLine.length === 0) {
+		return firstLine.length === 0 ? thirdLine.pop() : firstLine.pop();
+	}
+	
+	if(thirdLine.length === 0) {
+	return firstLine.length === 0 ? thirdLine.pop() : firstLine.pop();
+}
+if (secondLine[])
+   
+}
+
 
 // Only edit above
 
