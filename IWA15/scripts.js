@@ -69,19 +69,25 @@ const thirdLine = data.lists[2][1]
 const result = []
 
 const extractBiggest = () => {
-	if (firstLine.length === 0) {
-		return secondLine.length === 0 ? thirdLine.pop() : secondLine.pop();
+	if (data.lists[0][1].length === 0) {
+		return data.lists[1][1].length === 0 ? data.lists[2][1].pop() : data.lists[1][1].pop();
 	}
 
-	if (secondLine.length === 0) {
-		return firstLine.length === 0 ? thirdLine.pop() : firstLine.pop();
+	if (data.lists[1][1].length === 0) {
+		return data.lists[0][1].length === 0 ? data.lists[2][1].pop() : data.lists[0][1].pop();
 	}
 	
 	if(thirdLine.length === 0) {
-	return firstLine.length === 0 ? thirdLine.pop() : firstLine.pop();
+	return data.lists[0][1].length === 0 ? data.lists[2][1].pop() : data.lists[0][1].pop();
 }
-if (secondLine[])
-   
+if (data.lists[0][1][data.lists[0][1].length -1] >= data.lists[1][1][data.lists[1][1].length - 1] && data.lists[0][1][ data.lists[0][1].length - 1] >= data.lists[2][1][data.lists[2][1].length - 1]) {
+	return data.lists[0][1].pop();
+}
+ 
+if(data.lists[1][1][data.lists[1][1].length - 1] >= data.lists[2][1][data.lists[2][1].length - 1] && data.lists[1][1][data.lists[1][1].length - 1] >= data.lists[0][1][data.lists[0][1].length - 1]) {
+	return data.lists[1][1].pop();
+}
+
 }
 
 
