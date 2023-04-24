@@ -61,35 +61,48 @@ const data = {
 }
 
 // Only edit below
-// I extract the list of numbers from the data object abd assign them to 3 variables
+/*// I extract the list of numbers from the data object abd assign them to 3 variables
 const firstLine = data.lists[0][1]
 const secondLine = data.lists[1][1]
-const thirdLine = data.lists[2][1]
+const thirdLine = data.lists[2][1]*/
+
+const {
+	lists: [
+		[,first],
+		[,second],
+		[,third],
+	]
+} = data
 
 const result = []
 
 const extractBiggest = () => {
-	if (data.lists[0][1].length === 0) {
-		return data.lists[1][1].length === 0 ? data.lists[2][1].pop() : data.lists[1][1].pop();
+	
+	if (firstLine.length === 0) {
+		return secondLine.length === 0 ? thirdLine.pop() : thirdLine.pop();
 	}
 
-	if (data.lists[1][1].length === 0) {
-		return data.lists[0][1].length === 0 ? data.lists[2][1].pop() : data.lists[0][1].pop();
+	if (secondLine.length === 0) {
+		return firstLine.length === 0 ? thirdLine.pop() : firstLine.pop();
 	}
 	
-	if(data.lists[2][1].length === 0) {
-	return data.lists[0][1].length === 0 ? data.lists[2][1].pop() : data.lists[0][1].pop();
+	if(thirdLine.length === 0) {
+	return firstLine.length === 0 ? thirdLine.pop() : firstLine.pop();
 }
-if (data.lists[0][1][data.lists[0][1].length -1] >= data.lists[1][1][data.lists[1][1].length - 1] && data.lists[0][1][ data.lists[0][1].length - 1] >= data.lists[2][1][data.lists[2][1].length - 1]) {
-	return data.lists[0][1].pop();
+const firstLast = first.at(-1)
+	const secondLast = second.at(-1)
+	const thirdLast = third.at(-1)
+
+/*if (firstLine[firstLine.length -1] >= secondLine[secondLine.length - 1] && firstLine[ firstLine.length - 1] >= thirdLine[thirdLine.length - 1]) {
+	return firstLine.pop();
 }
  
-if(data.lists[1][1][data.lists[1][1].length - 1] >= data.lists[2][1][data.lists[2][1].length - 1] && data.lists[1][1][data.lists[1][1].length - 1] >= data.lists[0][1][data.lists[0][1].length - 1]) {
+if(secondLine[secondLine.length - 1] >= data.lists[2][1][data.lists[2][1].length - 1] && data.lists[1][1][data.lists[1][1].length - 1] >= data.lists[0][1][data.lists[0][1].length - 1]) {
 	return data.lists[1][1].pop();
 }
 if (data.lists[2][1][data.lists[2][1].length -1] >= data.lists[0][1][data.lists[0][1].length -1] && data.lists[2][1][data.lists[2][1].length -1] >= data.lists[1][1][data.lists[1][1].length -1]) {
 	return data.lists[2][1].pop();
-}
+}*/
 }
 
  /*//Longer solution
