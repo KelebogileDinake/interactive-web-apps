@@ -61,7 +61,7 @@ const data = {
 }
 
 // Only edit below
-// I exttract the list of numbers from the data object abd assign them to 3 variables
+// I extract the list of numbers from the data object abd assign them to 3 variables
 const firstLine = data.lists[0][1]
 const secondLine = data.lists[1][1]
 const thirdLine = data.lists[2][1]
@@ -77,7 +77,7 @@ const extractBiggest = () => {
 		return data.lists[0][1].length === 0 ? data.lists[2][1].pop() : data.lists[0][1].pop();
 	}
 	
-	if(thirdLine.length === 0) {
+	if(data.lists[2][1].length === 0) {
 	return data.lists[0][1].length === 0 ? data.lists[2][1].pop() : data.lists[0][1].pop();
 }
 if (data.lists[0][1][data.lists[0][1].length -1] >= data.lists[1][1][data.lists[1][1].length - 1] && data.lists[0][1][ data.lists[0][1].length - 1] >= data.lists[2][1][data.lists[2][1].length - 1]) {
@@ -87,10 +87,65 @@ if (data.lists[0][1][data.lists[0][1].length -1] >= data.lists[1][1][data.lists[
 if(data.lists[1][1][data.lists[1][1].length - 1] >= data.lists[2][1][data.lists[2][1].length - 1] && data.lists[1][1][data.lists[1][1].length - 1] >= data.lists[0][1][data.lists[0][1].length - 1]) {
 	return data.lists[1][1].pop();
 }
-
+if (data.lists[2][1][data.lists[2][1].length -1] >= data.lists[0][1][data.lists[0][1].length -1] && data.lists[2][1][data.lists[2][1].length -1] >= data.lists[1][1][data.lists[1][1].length -1]) {
+	return data.lists[2][1].pop();
+}
 }
 
+ /*//Longer solution
+ const extractBiggest =() => {
+	if(firstLine.length === 0) {
+		if(secondLine.length === 0) {
+			return thirdLine.pop();
+		}else {
+			return secondLine.pop();
+		}
+    }
+	if(secondLine.length === 0){
+		if(thirdLine.length === 0) {
+			if(thirdLine.length === 0){
+				return firstLine.pop()
+			} else{ 
+				return thirdLine.pop()
+			}
+		}
+	}
+	if(thirdLine.length === 0){
+		if(firstLine.length === 0){
+			if(secondLine.length === 0){
+				return secondLine .pop()
+			} else {
+				return firstLine.pop()
+			}
+		}
+	}
 
+	if(firstLine[firstLine.length -1] >= secondLine[secondLine.length -1]&& firstLine[firstLine.length -1] >= thirdLine[thirdLine.length -1]){
+		if(firstLine.length=== 0){
+			return thirdLine.pop()
+		} else {
+			return firstLine.pop()
+		}
+	} else if (secondLine[secondLine.length -1] >= firstLine[firstLine.length -1] && secondLine[secondLine.length -1] >= thirdLine[thirdLine.length -1]){
+		if(secondLine.length === 0){
+			return thirdLine.pop();
+		} else {
+			return secondLine.pop()
+		}
+	}else{
+		if (thirdLine.length === 0){
+			if(firstLine.length === 0) {
+				return secondLine.pop();
+			} else{
+				return firstLine.pop();
+			} 
+		}
+		else {
+			return thirdLine.pop();
+		}
+	}
+ }*/
+	
 // Only edit above
 
 result.push(extractBiggest())
@@ -112,3 +167,4 @@ result.push(extractBiggest())
 result.push(extractBiggest())
 
 console.log(result)
+
