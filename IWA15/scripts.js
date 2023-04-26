@@ -68,7 +68,11 @@ const thirdLine = data.lists[2][1];
 
 const result = [];
 
+
 const extractBiggest = () => {
+	//the extractbiggest function checks the lenght of the 3 arrays and if any empty, 
+   //it returns the biggest value from the remaining two arrays using the .pop() method
+   //if none of the arrays is empty, the function compares the last elements of the three arrays using conditional statements and returns the largest value among them using the .pop() method
   if (firstLine.length === 0) {
     return secondLine.length === 0 ? thirdLine.pop() : secondLine.pop();
   }
@@ -80,20 +84,20 @@ const extractBiggest = () => {
   if (thirdLine.length === 0) {
     return firstLine.length === 0 ? secondLine.pop() : firstLine.pop();
   }
-
+  //
   if (
     firstLine.slice(-1)[0] >= secondLine.slice(-1)[0] &&
     firstLine.slice(-1)[0] >= thirdLine.slice(-1)[0]
   ) {
     return firstLine.pop();
-  }
+  } //the -1 argument means that slice should start from the last element of the array and count backwards
 
   if (
     secondLine.slice(-1)[0] >= thirdLine.slice(-1)[0] &&
     secondLine.slice(-1)[0] >= firstLine.slice(-1)[0]
   ) {
     return secondLine.pop();
-  }
+  } 
   return thirdLine.pop();
 };
 
