@@ -1,59 +1,69 @@
-/**
- * A handler that fires when a user drags over any element inside a column. In
- * order to determine which column the user is dragging over the entire event
- * bubble path is checked with `event.path` (or `event.composedPath()` for
- * browsers that don't support `event.path`). The bubbling path is looped over
- * until an element with a `data-area` attribute is found. Once found both the
- * active dragging column is set in the `state` object in "data.js" and the HTML
- * is updated to reflect the new column.
- *
- * @param {Event} event 
- */
-const handleDragOver = (event) => {
-    event.preventDefault();
-    const path = event.path || event.composedPath()
-    let column = null
 
-    for (const element of path) {
-        const { area } = element.dataset
-        if (area) {
-            column = area
-            break;
-        }
-    }
+import{ createOrderHtml, html, updateDraggingHtml, moveToColumn};
 
-    if (!column) return
-    updateDragging({ over: column })
-    updateDraggingHtml({ over: column })
-}
+import{COLUMNS, state, updateDragging, createOrderData, TABLES }
+
+// Select the "Add Order" button
+const addOrderBtn = document.querySelector('[data-add]');
+const tableSelect = document.querySelector('[data-add-table]');
+
+// Add a click event listener to the "Add Order" button
+addOrderBtn.addEventListener('click', () => {
+  // Show the "Add Order" dialog
+  const addOverlay = document.querySelector('[data-add-overlay]');
+  addOverlay.showModal();})
+
+  // Clear the input fields of the "Add Order" overlay
+  const itemInput = document.querySelector('[data-add-item]');
+  const priceInput = document.querySelector('[data-add-price]');
+  itemInput.value = '';
+  priceInput.value = '';
+
+  // Select the "Add" button in the "Add Order" overlay
+  const addBtn = document.querySelector('[data-add-submit]');
+
+  // Add a click event listener to the "Add" button
+  addBtn.addEventListener('click', () => {
+    // Remove the "Add Order" overlay
+    addOverlay.close();})
+
+    // Add a new order to the "Ordered" column
+    const orderedColumn = document.querySelector('.ordered-column');
+    const order = document.createElement('div');
+    order.classList.add('order');
+    order.innerHTML = `
+      <div class="item">${item}</div>
+      <div class="price">$${price}</div>
+    `;
+    orderedColumn.appendChild(order);
+ 
 
 
-const handleDragStart = (event) => {}
-const handleDragEnd = (event) => {}
-const handleHelpToggle = (event) => {}
-const handleAddToggle = (event) => {}
-const handleAddSubmit = (event) => {}
-const handleEditToggle = (event) => {}
-const handleEditSubmit = (event) => {}
-const handleDelete = (event) => {}
+       
+  // Select the "Cancel" button in the "Add Order" dialog
+  const cancelBtn = document.querySelector('[data-add-cancel]');
 
-html.add.cancel.addEventListener('click', handleAddToggle)
-html.other.add.addEventListener('click', handleAddToggle)
-html.add.form.addEventListener('submit', handleAddSubmit)
+  // Add a click event listener to the "Cancel" button
+  cancelBtn.addEventListener('click', () => {
+    // Hide the "Add Order" dialog
+    const addOverlay = document.querySelector('[data-add-overlay]');
+    addOverlay.close();
+  });
 
-html.other.grid.addEventListener('click', handleEditToggle)
-html.edit.cancel.addEventListener('click', handleEditToggle)
-html.edit.form.addEventListener('submit', handleEditSubmit)
-html.edit.delete.addEventListener('click', handleDelete)
+  //? button
+// Select the "Help" button
+const helpBtn = document.querySelector('[data-help]');
+const closeBtn = document.querySelector('[data-help-cancel]')
 
-html.help.cancel.addEventListener('click', handleHelpToggle)
-html.other.help.addEventListener('click', handleHelpToggle)
+// Add a click event listener to the "Help" button
+helpBtn.addEventListener('click', () => {
+  // Show the "Help" overlay
+  const helpOverlay = document.querySelector('[data-help-overlay]');
+  helpOverlay.showModal();
 
-for (const htmlColumn of Object.values(html.columns)) {
-    htmlColumn.addEventListener('dragstart', handleDragStart)
-    htmlColumn.addEventListener('dragend', handleDragEnd)
-}
+  closeBtn.addEventListener('click', () => {
+    helpOverlay.close()
 
-for (const htmlArea of Object.values(html.area)) {
-    htmlArea.addEventListener('dragover', handleDragOver)
-}
+  })
+});
+
