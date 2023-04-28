@@ -35,7 +35,7 @@ const handleDragStart = (event) => {
 event.preventDefault();
 
 }
-htmlColumn.addEventListener('dragstart', handleDragStart);
+html.Column.addEventListener('dragstart', handleDragStart);
 
 
 const handleDragEnd = () => {
@@ -88,7 +88,7 @@ const handleHelpToggle = () => {
     html.help.cancel.addEventListener('click', handleHelpToggle1);
 
 
-// Add Order button Open
+// Add Order button Open for a small screen
 
 const handleAddToggle = () => {
   html.add.overlay.toggleAttribute('open');
