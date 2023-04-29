@@ -37,6 +37,7 @@ export const COLUMNS = [
  * maintain, update and extends since the DOM itself can not be persisted or
  * saved in storage (either local or remote).
  */
+//the is something we can do here
 export const state = {
     orders: {},
     dragging: {
@@ -54,6 +55,7 @@ export const state = {
  * timezones. Therefore two additional random numbers are added to the ID to
  * ensure additional uniqueness.
  */
+//the is something we can do here
 const createUniqueId = () => {
     const random1 = Math.floor(Math.random() * 10000000000000000)
     const random2 = Math.floor(Math.random() * 10000000000000000)
@@ -70,6 +72,7 @@ const createUniqueId = () => {
  * @param {object} props 
  * @returns {object}
  */
+//also here something can be done
 export const createOrderData = (props) => {
     const { title, table, column } = props
 
@@ -93,6 +96,7 @@ export const createOrderData = (props) => {
  *
  * @param {object} newDragging 
  */
+//Something here also
 export const updateDragging = (newDragging) => {
     const { source = state.dragging.source, over = state.dragging.over } = newDragging
     if (over === state.dragging.over) return

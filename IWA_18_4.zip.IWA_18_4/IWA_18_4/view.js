@@ -35,7 +35,7 @@ export const createOrderHtml = (order) => {
             </div>
         </dl>
     `
-
+    //also here
     return element
 }
 
@@ -115,6 +115,7 @@ for (const columnName of COLUMNS) {
  *
  * @param {object} newDragging 
  */
+//also here to drag
 export const updateDraggingHtml = (newDragging) => {
     const { over = state.dragging.over } = newDragging
 

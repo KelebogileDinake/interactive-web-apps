@@ -11,24 +11,85 @@ import { createOrderHtml, html, updateDraggingHtml, moveToColumn } from "./view.
  *
  * @param {Event} event 
 */
-const handleDragOver = (event) => {
+const orderDrag = (items, containers) => {
+  const handleDragOver= (event) =>{
+    event.preventDefault();
+    const path = event.path || event.compsedPath();
+    let column = null;
+
+    for (const element of path) {
+      const { area } = element.dataset
+      if (area) {
+        column = area
+        break;
+      }
+  }
+  if (!column) return;
+
+  containers.forEach(col => {
+    col.style.backgroundColor = col.dataset.area === column ? "green" : "";
+    col.removeEventListener("drop", handleDrop);
+    if (col.dataset.area === column) {
+      col.addEventListener("drop", handleDrop);
+    }
+  });
+}
+const handleDrop = (event) => {
+  event.preventDefault();
+  const { order } = event.dataTransfer.getData("");
+  const currentColumn = document.querySelector(`[data-column-orders*="${order}"]`);
+  if (currentColumn) {
+    const orders = currentColumn.dataset.columnOrders.split(",");
+    const index = orders.indexOf(order);
+    if (index > -1) {
+      orders.splice(index, 1);
+      currentColumn.dataset.columnOrders = orders.join(",");
+    }
+  }
+  const newColumn = document.querySelector(`[data-area="${COLUMNS}"]`);
+  if (newColumn) {
+    const orders = newColumn.dataset.columnOrders.split(",");
+    orders.push(order);
+    newColumn.dataset.columnOrders = orders.join(",");
+  }
+  containers.forEach(col => {
+    col.style.backgroundColor = "";
+    col.removeEventListener("drop", handleDrop);
+  });
+}
+items.forEach(item => {
+  item.draggable = true;
+  item.addEventListener("dragstart", (event) => {
+    event.dataTransfer.setData("order", event.currentTarget.dataset.order);
+  });
+});
+containers.forEach(col => {
+  col.addEventListener("dragover", handleDragOver);
+  col.addEventListener("drop", handleDrop);
+});
+};
+const allOrders = document.querySelectorAll("[data-order]");
+const allColumns = document.querySelectorAll("[data-area]");
+dragAndDrop(allOrders, allColumns);
+
+/*const handleDragOver = (event) => {
   event.preventDefault();
   const path = event.path || event.composedPath()
   let column = null
 
-  for (const element of path) {
-    const { area } = element.dataset
-    if (area) {
-      column = area
-      break;
-    }
+  
   }
 
-  if (!column) return
+  
   updateDragging({ over: column })
   updateDraggingHtml({ over: column })
   htmlArea.addEventListener('dragover', handleDragOver);
-}
+}*/
+
+//For dragging to work
+/*if (order=== true) {
+  newColumn === 'preparing';
+}*/
 
 /*
 const handleDragStart = (event) => {
@@ -44,7 +105,7 @@ const handleDragEnd = () => {
 htmlColumn.addEventListener('dragend', handleDragEnd);
 */
 
-//Open Help Overlay
+//Open Help Overlay, the help button
 
 const handleHelpToggle = () => {
   html.help.overlay.toggleAttribute('open');
@@ -88,22 +149,19 @@ const handleHelpToggle = () => {
     html.help.cancel.addEventListener('click', handleHelpToggle1);
 
 
-// Add Order button Open for a small screen
-
+// Add Order button Open for a small screen first step. till Add button to add order in the Ordered column
 const handleAddToggle = () => {
-  html.add.overlay.toggleAttribute('open');
+ html.add.overlay.toggleAttribute('open');
 
   if (html.add.overlay.open) {
     const tableOptions = TABLES.map((table) => `
-      <option value="${table}">${table}</option>
+      <option value="${table}">${table}</option>OIUYTR?/ ,
     `).join('');
 
     html.add.table.innerHTML = tableOptions;
   }
 };
 html.other.add.addEventListener('click', handleAddToggle);
-
-//Add button to add order in the Ordered column
 
 const handleAddSubmit = (event) => {
   event.preventDefault();
@@ -153,20 +211,20 @@ html.add.cancel.addEventListener('click', handleAddCancel);
 
 //Editing orders
 
-
 //Edit Order overlay Open
 const handleEditToggle = () => {
   html.edit.overlay.toggleAttribute('open');
 };
 html.other.grid.addEventListener('click', handleEditToggle);
-
+html.edit.delete.
 //Submit Changes
-const handleEditSubmit = (event) => {
+  const handleEditSubmit = (event) => {
   event.preventDefault();
   const id = html.edit.id.value;
   const title = html.edit.title.value;
   const table = html.edit.table.value;
-  const status = html.edit.status.value; // get the status value from the form
+  const status = html.edit.status.value;
+}; // get the status value from the form
 
 
   const order = state.orders.find((order) => order.id === id);
@@ -189,8 +247,13 @@ const handleEditSubmit = (event) => {
      if (columnElement) {
        columnElement.querySelector('.orders').appendChild(orderElement);
      }
-};
-};
+} else {
+  html.edit.delete.addEventListener('click', (event) => {
+    event.preventDefault();
+    handleDelete();
+  });
+}
+
 
 // close the "Edit Order" overlay
 html.edit.overlay.close();
@@ -207,12 +270,7 @@ const handleDelete = () => {
   html.form.reset(); // reset the form fields // issue is here, the delete button does not clear the form field
 };
 
-html.edit.delete.addEventListener('click', (event) => {
-  event.preventDefault();
-  handleDelete();
- 
 
-});
 
 
 //Cancel Button
