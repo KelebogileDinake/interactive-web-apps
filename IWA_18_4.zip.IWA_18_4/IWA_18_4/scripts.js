@@ -11,7 +11,13 @@ import { createOrderHtml, html, updateDraggingHtml, moveToColumn } from "./view.
  *
  * @param {Event} event 
 */
-const handleDragOver = (event) => {
+
+/*element.addEventListener('dragstart', (event) => {
+  event.dataTransfer.effectAllowed = 'move'
+  event.dataTransfer.setData('text/plain', event.target.dataset.id)
+})*/
+
+ const handleDragOver = (event) => {
   event.preventDefault();
   const path = event.path || event.composedPath();
   let column= null;
@@ -27,15 +33,25 @@ const handleDragOver = (event) => {
   if(!column) return;
   updateDragging({over : column});
   updateDraggingHtml({over:column });
-  HTMLArea.addEventListener("dragover", handleDragOver);
+  //htmlArea.addEventListener("dragover", handleDragOver);
 };
-
-const handleDragStart =()=> {
-  htmlColumn.addEventListener("handleDragStart", handleDragStart);
+let dragged;
+const handleDragStart = (e) => {
+  dragged = e.target;
 };
-
-const handleDragEnd = () => {
-  htmlColumn.addEventListener("dragend", handleDragEnd);
+const handleDragDrop = (f) => {
+  f.target.append(dragged);
+};
+const handleDragEnd= (g) =>{
+const background = g.target.closest("section");
+background.style.backgroundColor="";
+};
+//attach event listeners to each column
+for (const htmlArea of Object.values(html.area)){
+  htmlArea.addEventListener("dragover", handleDragOver);
+  htmlArea.addEventListener("dragstart", handleDragStart);
+  htmlArea.addEventListener("drop", handleDragDrop);
+  htmlArea.addEventListener("dragend", handleDragEnd);
 };
 
 //opens Help screen
@@ -49,8 +65,8 @@ html.other.help.addEventListener('click', handleHelpToggle);
 const handleAddToggle = () => {
   html.add.overlay.toggleAttribute('open');
 };
-html.help.cancel.addEventListener('click', handleAddToggle);
-html.other.help.addEventListener('click', handleAddToggle);
+html.add.cancel.addEventListener('click', handleAddToggle);
+html.other.add.addEventListener('click', handleAddToggle);
 
 //Submit Information
 const handleAddSubmit = (event) => {
@@ -76,7 +92,7 @@ html.add.form.addEventListener("submit", handleAddSubmit);
 const handleEditToggle= () => {
   html.edit.overlay.toggleAttribute("open");
 };
-html.other.grid.addEventListener('click', handleEditToggle);
+html.other.form.addEventListener('click', handleEditToggle);
 html.edit.cancel.addEventListener('click', handleEditToggle);
 
 //Submit Edited information
@@ -90,7 +106,9 @@ const { id, title, table, created, column}= {
   created: new Date(),
   id: state.orders,
   column: html.edit.column.value,
-}
+};
+
+const order = {id, title, table, created, column}
 
 //Find the Index of the order to be updated
 let orderId = -1; //-1 allows us to check if an order index has been found
@@ -109,6 +127,9 @@ state.orders[orderId] = createOrderData(order);
 const newOrder = createOrderHtml(order);
 const oldOrder = document.querySelector(`[data-id="${id}"]`);
 oldOrder.replaceWith(newOrder);
+
+//Update the order element using dragging
+
 
 //Move the order element to the correct column in the HTML
 switch(column) {
@@ -141,7 +162,7 @@ const handleDelete = (event) => {
   let orderId = -1; //-1 allows us to check if an order index has been found
   
   //Find the order element with the new data
-  for (let i = 0; i < StaticRange.orders.length; i++) {
+  for (let i = 0; i < state.orders.length; i++) {
     if(state.orders[i].id === id){
       orderId = i;
       break;
@@ -150,8 +171,8 @@ const handleDelete = (event) => {
 
   //Delete the order element with the new data
   const neworder = createOrderHtml(order);
-  const oldeOrder = document.querySelector(`[data-id-"${id}"]`);
-  oldeOrder.remove(neworder);
+  const oldOrder = document.querySelector(`[data-id="${id}"]`);
+  oldOrder.remove(neworder);
 
   html.edit.overlay.close();
 };
