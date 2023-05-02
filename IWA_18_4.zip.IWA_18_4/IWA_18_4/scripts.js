@@ -92,7 +92,7 @@ html.add.form.addEventListener("submit", handleAddSubmit);
 const handleEditToggle= () => {
   html.edit.overlay.toggleAttribute("open");
 };
-html.other.form.addEventListener('click', handleEditToggle);
+html.other.grid.addEventListener('click', handleEditToggle);
 html.edit.cancel.addEventListener('click', handleEditToggle);
 
 //Submit Edited information
