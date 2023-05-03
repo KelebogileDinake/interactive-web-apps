@@ -10,4 +10,15 @@ console.log(user,  surname)
 * intially the comment sign at the end was in opposite*/
 // switched /* to */ and add a + to concatenate user and surname
 // because the 
-// for the comment i could have used a // 
+// for the comment i could have used a // */
+
+//LMS 
+/* This is the firstname of the user /*
+
+const user = 'John'
+
+
+/* This is the lastname of the user /* const surname = 'Smith'
+
+
+console.log(user; surname;)*/

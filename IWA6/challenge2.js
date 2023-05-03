@@ -36,3 +36,5 @@ if ((hourOfDay== '00') && (minuteOfDay == '00')){
     const balance = startingAfterTax - expense
     console.log( 'R' + balance.toFixed(2))
 }
+
+//output: R242.05

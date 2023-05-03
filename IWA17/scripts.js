@@ -104,6 +104,8 @@ const current = new Date();
 document.querySelector('[data-title]').innerText = `${MONTHS[current.getMonth()]} ${current.getFullYear()}`;
 
 createHtml();
+
+
   /*const data = createData()
 document.querySelector('[data-content]').innerHTML = createHtml(data)*/
 
